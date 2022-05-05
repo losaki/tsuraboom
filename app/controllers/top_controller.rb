@@ -1,9 +1,7 @@
 class TopController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def create
-    @value = params["input"]
+  def new
     render :index
   end
 end
