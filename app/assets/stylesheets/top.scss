@@ -1,3 +1,17 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.boom {
+  position: absolute;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+body {
+	width: 650px;
+	margin: 0 auto;
+	overflow-x: hidden;
+}
+.msg {
+	width: 0;
+	text-align: center;
+	position: relative;
+}

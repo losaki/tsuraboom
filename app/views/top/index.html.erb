@@ -1,0 +1,61 @@
+<h2>あなたの「つらい…」ことをにゅうりょくしてください</h2>
+<form id="form1" action="#">
+<input type="text" id="input-message">
+<input type="button" onclick="showMessage(); setTimeout('moveLetter()',100); setTimeout('clearForm()',6000)" id="btn" value="送信">
+</form>
+  <div class="msg" id="msg">
+<h1 id="output-message" class="move"></h1>
+  </div>
+
+<script language="javascript" type="text/javascript">
+const showMessage = () => {
+  const textbox = document.getElementById("input-message");
+  const inputValue = textbox.value;
+
+  //テキストボックスの値を使って、出力するメッセージを生成する
+  const output = "「" + inputValue + "」";
+  //メッセージを表示
+  document.getElementById("output-message").innerHTML = output;
+
+  //文字列をspan化
+  let spanText  = document.getElementById("output-message");
+  let text = document.getElementById("output-message").innerHTML;
+  let newText ="";
+  text.split("").forEach(function(value,i) {
+      newText += '<span id="boom" class="boom">' + value + '</span>';
+  });
+  spanText.innerHTML = newText;
+}
+
+//エフェクトの表示
+const moveLetter = () => {
+
+  //文字をランダムに移動させる
+  let txts = document.getElementsByClassName('boom');
+  let styles; let i; let randomX; let randomY; let keyframes;
+  for (i in txts) {
+	if (i >= 0) {
+		styles = document.styleSheets[0];
+		randomX = Math.random() * 1000 - 1000 / 2;
+		randomY = Math.random() * 1000 - 1000 / 2;
+		keyframes = "@keyframes move" + i + " { from { transform: translate(0, 0) } to { transform: translate(" + randomX + "vw, " + randomY + "vh) } }";
+		styles.insertRule(keyframes, styles.cssRules.length);
+
+		txts[i].style.left = i - txts.length / 10 + "em";
+		txts[i].style.animation = "move" + i + " 6s 1s both";
+}}
+  //爆発の表示
+  let boomPlace = document.getElementById('msg');
+  var boomView = function(){boomPlace.insertAdjacentHTML('beforeend', '<%= image_tag "bakuhatsu.png" %>');}
+  setTimeout(boomView, 1000);
+}
+
+//フォーム・出力した文字、画像の消去
+const clearForm = () => {
+  var textForm = document.getElementById("input-message");
+  textForm.value = '';
+  document.getElementById("output-message").innerHTML = '';
+  document.getElementById("msg").innerHTML = '';
+}
+
+</script>
