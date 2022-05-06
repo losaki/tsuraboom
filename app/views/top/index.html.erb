@@ -1,12 +1,11 @@
-<h2>あなたの「つらい…」ことをにゅうりょくしてください</h2>
+<h2>あなたの「つらい」ことを入力してください</h2>
 
 <form id="form1">
-  <input type="text" id="input-message">
+  <div class="inputMessagediv"><input type="text" id="input-message" class="inputMessage"></div>
     <a class="btn-emergency" onclick="showMessage(); setTimeout('moveLetter()',100); setTimeout('clearForm()',6000); setTimeout('boomSound()',1000);" id="btn">
     <span class="btn-emergency-bottom"></span>
-    <span class="btn-emergency-top"><span></span></span>
+    <span class="btn-emergency-top"><span>！</span></span>
   </a>
-  <%= button_to 'もう一回！', { controller: 'top', action: 'new' }, { method: :get } %>
 </form>
 
 <div class="msg" id="msg">
@@ -50,7 +49,7 @@ const moveLetter = () => {
 		styles.insertRule(keyframes, styles.cssRules.length);
 
     txts[i].style.top = "50%";
-		txts[i].style.left = i - txts.length / 10 + 3 + "em";
+		txts[i].style.left = i - txts.length / 2 + "em";
 		txts[i].style.animation = "move" + i + " 4s 1s both";
 }}
   //爆発の表示
@@ -65,7 +64,7 @@ const clearForm = () => {
   var textForm = document.getElementById("input-message");
   textForm.value = '';
   document.getElementById("output-message").innerHTML = '';
-  document.getElementById("msg").innerHTML = '';
+  document.getElementById("msg").innerHTML = '<%= button_to 'リセット', { controller: 'top', action: 'new' }, { method: :get, class: 'reset' } %>';
 }
 
 function boomSound(){

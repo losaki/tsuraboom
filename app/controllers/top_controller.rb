@@ -2,6 +2,6 @@ class TopController < ApplicationController
   def index; end
 
   def new
-    render :index
+    redirect_to root_path
   end
 end
