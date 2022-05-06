@@ -9,13 +9,16 @@ body {
 	width: 650px;
 	margin: 0 auto;
 	overflow-x: hidden;
+  background-image: url("line_mountain.png");
+  background-repeat : space;
+  background-size: 100% auto;
+
 }
 .msg {
 	width: 0;
 	text-align: center;
 	position: relative;
 }
-
 
 
 
