@@ -2,6 +2,10 @@
 <form id="form1">
 <input type="text" id="input-message">
 <input type="button" onclick="showMessage(); setTimeout('moveLetter()',100); setTimeout('clearForm()',6000)" id="btn" value="爆破！">
+<a class="btn-emergency" onclick="showMessage(); setTimeout('moveLetter()',100); setTimeout('clearForm()',6000)" id="btn">
+  <span class="btn-emergency-bottom"></span>
+  <span class="btn-emergency-top"><span>押す</span></span>
+</a>
 <%= button_to 'もう一回！', { controller: 'top', action: 'new' }, { method: :get } %>
 </form>
   <div class="msg" id="msg">
@@ -49,6 +53,8 @@ const moveLetter = () => {
   let boomPlace = document.getElementById('msg');
   var boomView = function(){boomPlace.insertAdjacentHTML('beforeend', '<%= image_tag "bakuhatsu.png" %>');}
   setTimeout(boomView, 1000);
+
+  document.getElementById("audioElement").play();
 }
 
 
