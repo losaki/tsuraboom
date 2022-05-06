@@ -2,7 +2,7 @@
 
 <form id="form1">
   <input type="text" id="input-message">
-    <a class="btn-emergency" onclick="showMessage(); setTimeout('moveLetter()',100); setTimeout('clearForm()',6000)" id="btn">
+    <a class="btn-emergency" onclick="showMessage(); setTimeout('moveLetter()',100); setTimeout('clearForm()',6000); setTimeout('boomSound()',1000);" id="btn">
     <span class="btn-emergency-bottom"></span>
     <span class="btn-emergency-top"><span></span></span>
   </a>
@@ -12,6 +12,8 @@
 <div class="msg" id="msg">
   <h1 id="output-message" class="move"></h1>
 </div>
+
+<%= audio_tag("boom.mp3", id: "boomAudio") %>
 
 <script language="javascript" type="text/javascript">
 const showMessage = () => {
@@ -64,6 +66,10 @@ const clearForm = () => {
   textForm.value = '';
   document.getElementById("output-message").innerHTML = '';
   document.getElementById("msg").innerHTML = '';
+}
+
+function boomSound(){
+  document.getElementById("boomAudio").play();
 }
 
 </script>
