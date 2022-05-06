@@ -1,8 +1,9 @@
-<h2>あなたの「つらい」こと、爆破して解決します！</h2>
+<div class="container">
+<h2>あなたの「つらい」こと、爆破*します！</h2>
 <h3>※音が流れます。ご注意ください。</h3>
 <form id="form1">
   <div class="inputMessagediv"><input type="text" id="input-message" class="inputMessage"></div>
-    <a class="btn-emergency" onclick="showMessage(); setTimeout('moveLetter()',100); setTimeout('clearForm()',6000); setTimeout('boomSound()',1000);" id="btn">
+    <a class="btn-emergency" onclick="showMessage(); setTimeout('moveLetter()',100); setTimeout('clearForm()',5000); setTimeout('boomSound()',1000);" id="btn">
     <span class="btn-emergency-bottom"></span>
     <span class="btn-emergency-top"><span>！</span></span>
   </a>
@@ -12,6 +13,7 @@
   <h1 id="output-message" class="move"></h1>
 </div>
 
+</div>
 <%= audio_tag("boom.mp3", id: "boomAudio") %>
 
 <script language="javascript" type="text/javascript">
